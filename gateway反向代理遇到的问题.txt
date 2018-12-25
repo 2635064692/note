@@ -1,0 +1,11 @@
+首先请求路径中包含%u这样的unicode参数编码由于不规范导致的转发失败
+	如http://192.168.12.6:9108/citywebfw/Framework/handler//UserLoginController.ashx?UserName=YWRtaW4=&Password=YWRtaW4=&UserID=1&
+	UserTrueName=%u7BA1%u7406%u5458&SystemType=%u4E1A%u52A1%u7CFB%u7EDF&Handle=Login&isSaveCookie=No&time=%E4%B8%8B%E5%8D%885:07:07
+	这个请求 中的SystemType=%u4E1A%u52A1%u7CFB%u7EDF
+1）、根据控制台日志显示的报错信息 找到 ReactorHttpHandlerAdapter类（即反向代理url进入的入口）
+2）、一步步调试 发现是再创建ServerHttpRequest时产生的异常 即定位到ReactorServerHttpRequest类中
+3）、新建ReactorServerHttpRequest类的所属包和其类（首先会再src/java下查找该类型） 重写resolveRequestUri该方法，格式化url将unicode
+	格式化为中文 （cn），后错误消失。
+4）、再进行文件的删除时报错 查找原因，由于是不为null 的空数组 但引用了arr[1]后报错，增加一个if判断语句 后错误消失。
+
+
