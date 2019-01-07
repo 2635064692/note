@@ -1,0 +1,10 @@
+1 配置bean 先加载yml文件 通过spring.application.name来判断外部是否存在该model的yml文件 
+	若存在 则从外部yml文件中加载配置信息 
+	若不存在 则可创建该model的外部yml配置信息
+
+	<dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>1.23</version>
+        </dependency>
+添加依赖 解析yml文件

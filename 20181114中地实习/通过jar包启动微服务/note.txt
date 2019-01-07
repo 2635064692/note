@@ -1,0 +1,26 @@
+
+
+通过cmd执行java -jar命令来启动微服务
+
+
+					CommandLine cmdLine = new CommandLine("java");
+
+                    cmdLine.addArgument("-Xms128m");
+                    cmdLine.addArgument("-Xmx256m");
+                    cmdLine.addArgument("-jar");
+                    cmdLine.addArgument(model.getPath());
+
+                    DefaultExecutor exec = new DefaultExecutor();
+
+                    ExecuteWatchdog watchdog = new ExecuteWatchdog(ExecuteWatchdog.INFINITE_TIMEOUT);
+                    DefaultExecuteResultHandler resultHandler = new DefaultExecuteResultHandler();
+					
+                    exec.setWatchdog(watchdog);
+					
+					////////设置工作目录  可以在该路径下的config文件夹中读取外部yml配置 来启动单个微服务
+                    exec.setWorkingDirectory(new File(model.getPath().substring(0, model.getPath().lastIndexOf("\\"))));
+					
+					///////执行cmd命令
+                    exec.execute(cmdLine, resultHandler);
+
+                    resultHandler.waitFor(10_000);

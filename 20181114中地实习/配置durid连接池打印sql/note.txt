@@ -1,0 +1,6 @@
+	其中
+		///////////// ////防御sql注入的filter:wall
+        ///////////////监控统计用的filter:mergeStat
+		 datasource.setFilters("mergeStat,wall");
+		
+		使用logback.xml配置将监控的sql语句打印到log文件中，

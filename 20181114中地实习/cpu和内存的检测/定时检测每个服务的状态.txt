@@ -1,0 +1,17 @@
+该定时任务 包括 定时检测每个服务的cpu使用情况 和内存占用情况
+	
+	CpuUtils类
+		通过进程的pid来获取该进程的cpu使用率
+		
+	MemoryUtils类
+		由进程的prot 通过cmd命令 netstat -ano|findstr port来获取进程的pid
+		由得到的pid 通过wmic命令 wmic process list brief | findstr pid 来获取进程的内存使用情况
+		（代码中的cmd或wmic命令要加上 cmd /c） cmd /c netstat -ano|findstr port
+
+	CpuAndMemoryHelper类
+		使用springboot 自带的@Scheduled注解开启定时任务（要在启动类中加上@EnableScheduling注解表示开启定时任务）
+		/**
+		 * initialDelay 初次执行任务之前等待10000ms
+		 * fixedDelay 每次执行任务之后间隔5000ms再次执行该任务。
+		 */
+		@Scheduled( initialDelay=1000,fixedDelay = 5000)
