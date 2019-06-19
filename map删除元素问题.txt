@@ -1,0 +1,17 @@
+ Iterator<Map.Entry<String, String>> entries = map.entrySet().iterator();
+            while (entries.hasNext()) {
+
+                Map.Entry<String, String> entry = entries.next();
+                if (entry.getKey().equals(pid)){
+
+                    value = entry.getValue();
+                    entries.remove();
+                    map.remove(entry.getKey());
+                }
+               // System.out.println("Key = " + entry.getKey() + ", Value = " + entry.getValue());
+
+            }
+
+在删除map元素时，要注意使用迭代器，并说明 移除操作 即 entriers.remove()！
+
+所以Iterator在工作的时候是不允许被迭代的对象被改变的。但可使用Iterator本身的remove()来删除对象，Iterator.remove()方法会在删除当前迭代对象的同时保持索引的一致性。
