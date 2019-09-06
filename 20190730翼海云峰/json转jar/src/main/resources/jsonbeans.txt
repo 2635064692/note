@@ -1,0 +1,240 @@
+jerry.test AppInfo
+
+{
+	"message": "",
+	"subCode": 0,
+	"data": [{
+		"protocolId": 1,
+		"pageId": 1,
+		"appid": "test",
+		"version": "1.0.1",
+		"pageName": "778",
+		"pageType": "主页",
+		"operation": "getUserInfo",
+		"request": {
+			"openId": {
+				"_type": "string",
+				"optional": false,
+				"defaultValue": null,
+				"note": "用户标识"
+			},
+			"name": {
+				"_type": "string",
+				"optional": false,
+				"defaultValue": null,
+				"note": "用户名称"
+			},
+			"age": {
+				"_type": "integer",
+				"optional": false,
+				"defaultValue": null,
+				"note": "年龄"
+			},
+			"people":{
+				"_type":"people",
+				"optional":false,
+				"defaultValue":null,
+				"note":null,
+				"inner":{
+					"age": {
+						"_type": "integer",
+						"optional": false,
+						"defaultValue": null,
+						"note": "年龄"
+					},
+					"sex":{
+						"_type": "string",
+						"optional": true,
+						"defaultValue": "男",
+						"note": "性别"
+					}
+				}
+			}
+
+		},
+
+		"response": {
+			"pageSize": {
+				"_type": "integer",
+				"optional": true,
+				"defaultValue": 10,
+				"note": "每页条数"
+			},
+			"page": {
+				"_type": "integer",
+				"optional": true,
+				"defaultValue": 0,
+				"note": "当前页码"
+			},
+			"total": {
+				"_type": "integer",
+				"optional": true,
+				"defaultValue": null,
+				"note": "总数"
+			},
+			"content": {
+				"_type": "set",
+				"optional": false,
+				"inner": {
+					"openId": {
+						"_type": "string",
+						"optional": false,
+						"defaultValue": null,
+						"note": "用户标识"
+					},
+					"name": {
+						"_type": "string",
+						"optional": false,
+						"defaultValue": null,
+						"note": "用户名称"
+					},
+					"age": {
+						"_type": "integer",
+						"optional": false,
+						"defaultValue": null,
+						"note": "年龄"
+					},
+					"sex": {
+						"_type": "integer",
+						"optional": false,
+						"defaultValue": 0,
+						"note": "性别0-男，1-女"
+					},
+					"location": {
+						"_type": "string",
+						"optional": false,
+						"defaultValue": "中国",
+						"note": "位置信息"
+					},
+					"date":{
+					    "_type": "timestamp",
+                        "optional": false,
+                        "defaultValue": "2019-7-1",
+                        "note": "时间信息"
+					}
+				},
+				"defaultValue": [],
+				"note": "信息详情"
+			}
+		},
+		"target": null,
+		"status": "Update"
+	},
+	{
+    		"protocolId": 1,
+    		"pageId": 1,
+    		"appid": "test",
+    		"version": "1.0.1",
+    		"pageName": "778",
+    		"pageType": "主页",
+    		"operation": "getHello",
+    		"in": {
+    			"openId": {
+    				"_type": "string",
+    				"optional": false,
+    				"defaultValue": null,
+    				"note": "用户标识"
+    			},
+    			"name": {
+    				"_type": "string",
+    				"optional": false,
+    				"defaultValue": null,
+    				"note": "用户名称"
+    			},
+    			"age": {
+    				"_type": "integer",
+    				"optional": false,
+    				"defaultValue": null,
+    				"note": "年龄"
+    			},
+    			"people":{
+    				"_type":"people",
+    				"optional":false,
+    				"defaultValue":null,
+    				"note":"人群",
+    				"inner":{
+    					"age": {
+    						"_type": "integer",
+    						"optional": false,
+    						"defaultValue": null,
+    						"note": "年龄"
+    					},
+    					"sex":{
+    						"_type": "string",
+    						"optional": true,
+    						"defaultValue": "男",
+    						"note": "性别"
+    					}
+    				}
+    			}
+
+    		},
+
+    		"out": {
+    			"pageSize": {
+    				"_type": "integer",
+    				"optional": true,
+    				"defaultValue": 10,
+    				"note": "每页条数"
+    			},
+    			"page": {
+    				"_type": "integer",
+    				"optional": true,
+    				"defaultValue": 0,
+    				"note": "当前页码"
+    			},
+    			"total": {
+    				"_type": "integer",
+    				"optional": true,
+    				"defaultValue": null,
+    				"note": "总数"
+    			},
+    			"content": {
+    				"_type": "list",
+    				"optional": false,
+    				"inner": {
+    					"openId": {
+    						"_type": "string",
+    						"optional": false,
+    						"defaultValue": null,
+    						"note": "用户标识"
+    					},
+    					"name": {
+    						"_type": "string",
+    						"optional": false,
+    						"defaultValue": null,
+    						"note": "用户名称"
+    					},
+    					"age": {
+    						"_type": "integer",
+    						"optional": false,
+    						"defaultValue": null,
+    						"note": "年龄"
+    					},
+    					"sex": {
+    						"_type": "integer",
+    						"optional": false,
+    						"defaultValue": 0,
+    						"note": "性别0-男，1-女"
+    					},
+    					"location": {
+    						"_type": "string",
+    						"optional": false,
+    						"defaultValue": "中国",
+    						"note": "位置信息"
+    					}
+    				},
+    				"defaultValue": [],
+    				"note": "信息详情"
+    			}
+    		},
+    		"target": null,
+    		"status": "Update"
+    	}],
+	"pageInfo": {
+		"page": 0,
+		"size": 10,
+		"total": 1,
+		"numberOfElements": 1
+	}
+}

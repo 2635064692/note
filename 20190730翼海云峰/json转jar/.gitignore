@@ -1,0 +1,14 @@
+*.class
+
+*.ppk
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+target
+output
+.idea
+*.iml
+logs
