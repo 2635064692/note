@@ -1,0 +1,8 @@
+---
+title: My Document
+author: John Doe
+date: January 1, 2022
+output:
+  html:
+    css: epub.css
+---
